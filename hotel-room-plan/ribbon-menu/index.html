@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Plan - Ribbon Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="ribbon-container">
+        <!-- Ribbon Header -->
+        <div class="ribbon-header">
+            <div class="app-name">Hotel Room Plan Manager</div>
+            <div class="search-box">
+                <input type="text" placeholder="Search rooms...">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+
+        <!-- Ribbon Tabs -->
+        <div class="ribbon-tabs">
+            <button class="ribbon-tab active" data-tab="home">Home</button>
+            <button class="ribbon-tab" data-tab="view">View</button>
+            <button class="ribbon-tab" data-tab="tools">Tools</button>
+            <button class="ribbon-tab" data-tab="settings">Settings</button>
+        </div>
+
+        <!-- Ribbon Content -->
+        <div class="ribbon-content">
+            <!-- Home Tab -->
+            <div class="ribbon-tab-content active" id="home-tab">
+                <div class="ribbon-group">
+                    <div class="group-title">Reservations</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-add-reservation" title="Add new reservation">
+                            <span class="icon">➕</span>
+                            <span class="label">Add Reservation</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-edit-reservation" title="Edit selected reservation">
+                            <span class="icon">✏️</span>
+                            <span class="label">Edit</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-delete-reservation" title="Delete reservation">
+                            <span class="icon">🗑️</span>
+                            <span class="label">Delete</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ribbon-divider"></div>
+
+                <div class="ribbon-group">
+                    <div class="group-title">Accommodations</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-add-accommodation" title="Add new accommodation">
+                            <span class="icon">🏨</span>
+                            <span class="label">Add Room</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-edit-accommodation" title="Edit room details">
+                            <span class="icon">🔧</span>
+                            <span class="label">Edit Room</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-delete-accommodation" title="Delete room">
+                            <span class="icon">❌</span>
+                            <span class="label">Delete Room</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ribbon-divider"></div>
+
+                <div class="ribbon-group">
+                    <div class="group-title">Navigation</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-today" title="Go to today">
+                            <span class="icon">📅</span>
+                            <span class="label">Today</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-prev-week" title="Previous week">
+                            <span class="icon">◀</span>
+                            <span class="label">← Week</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-next-week" title="Next week">
+                            <span class="icon">▶</span>
+                            <span class="label">Week →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ribbon-divider"></div>
+
+                <div class="ribbon-group">
+                    <div class="group-title">View Options</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-zoom-in" title="Zoom in">
+                            <span class="icon">🔍+</span>
+                            <span class="label">Zoom In</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-zoom-out" title="Zoom out">
+                            <span class="icon">🔍-</span>
+                            <span class="label">Zoom Out</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-reset-zoom" title="Reset zoom">
+                            <span class="icon">⊙</span>
+                            <span class="label">Reset</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Tab -->
+            <div class="ribbon-tab-content" id="view-tab">
+                <div class="ribbon-group">
+                    <div class="group-title">Display</div>
+                    <div class="group-items">
+                        <button class="ribbon-button toggle-btn" id="btn-show-occupied" title="Show/Hide occupied rooms">
+                            <span class="icon">👥</span>
+                            <span class="label">Occupied</span>
+                        </button>
+                        <button class="ribbon-button toggle-btn" id="btn-show-available" title="Show/Hide available rooms">
+                            <span class="icon">✓</span>
+                            <span class="label">Available</span>
+                        </button>
+                        <button class="ribbon-button toggle-btn" id="btn-show-maintenance" title="Show/Hide maintenance rooms">
+                            <span class="icon">🔧</span>
+                            <span class="label">Maintenance</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ribbon-divider"></div>
+
+                <div class="ribbon-group">
+                    <div class="group-title">Grouping</div>
+                    <div class="group-items">
+                        <select id="group-by" class="ribbon-select">
+                            <option value="floor">Group by Floor</option>
+                            <option value="type">Group by Room Type</option>
+                            <option value="status">Group by Status</option>
+                            <option value="none">No Grouping</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Tab -->
+            <div class="ribbon-tab-content" id="tools-tab">
+                <div class="ribbon-group">
+                    <div class="group-title">Analysis</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-occupancy-report" title="View occupancy report">
+                            <span class="icon">📊</span>
+                            <span class="label">Occupancy</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-revenue-report" title="View revenue report">
+                            <span class="icon">💰</span>
+                            <span class="label">Revenue</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-conflicts" title="Show booking conflicts">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Conflicts</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ribbon-divider"></div>
+
+                <div class="ribbon-group">
+                    <div class="group-title">Data</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-export" title="Export data">
+                            <span class="icon">📤</span>
+                            <span class="label">Export</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-import" title="Import data">
+                            <span class="icon">📥</span>
+                            <span class="label">Import</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-print" title="Print plan">
+                            <span class="icon">🖨️</span>
+                            <span class="label">Print</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="ribbon-tab-content" id="settings-tab">
+                <div class="ribbon-group">
+                    <div class="group-title">Preferences</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-general-settings" title="General settings">
+                            <span class="icon">⚙️</span>
+                            <span class="label">General</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-room-types" title="Manage room types">
+                            <span class="icon">🏷️</span>
+                            <span class="label">Room Types</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-pricing" title="Pricing settings">
+                            <span class="icon">💵</span>
+                            <span class="label">Pricing</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ribbon-divider"></div>
+
+                <div class="ribbon-group">
+                    <div class="group-title">Help</div>
+                    <div class="group-items">
+                        <button class="ribbon-button" id="btn-about" title="About this application">
+                            <span class="icon">ℹ️</span>
+                            <span class="label">About</span>
+                        </button>
+                        <button class="ribbon-button" id="btn-help" title="View help documentation">
+                            <span class="icon">❓</span>
+                            <span class="label">Help</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="ribbon-statusbar">
+            <div class="status-item" id="status-message">Ready</div>
+            <div class="status-item" id="status-date"></div>
+            <div class="status-item" id="status-stats"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Add Reservation -->
+    <div id="modal-add-reservation" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Reservation</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-add-reservation">
+                    <div class="form-group">
+                        <label>Guest Name:</label>
+                        <input type="text" id="guest-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Room:</label>
+                        <select id="room-select" required>
+                            <option value="">Select a room...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-in Date:</label>
+                        <input type="date" id="checkin-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-out Date:</label>
+                        <input type="date" id="checkout-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rate per Night:</label>
+                        <input type="number" id="rate-per-night" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save</button>
+                        <button type="button" class="btn-secondary" onclick="closeModal('modal-add-reservation')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Add Accommodation -->
+    <div id="modal-add-accommodation" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Room</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-add-accommodation">
+                    <div class="form-group">
+                        <label>Room Number:</label>
+                        <input type="text" id="room-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Floor:</label>
+                        <input type="number" id="room-floor" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Type:</label>
+                        <select id="room-type" required>
+                            <option value="single">Single</option>
+                            <option value="double">Double</option>
+                            <option value="suite">Suite</option>
+                            <option value="deluxe">Deluxe</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Capacity:</label>
+                        <input type="number" id="room-capacity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Base Price:</label>
+                        <input type="number" id="room-price" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save</button>
+                        <button type="button" class="btn-secondary" onclick="closeModal('modal-add-accommodation')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
