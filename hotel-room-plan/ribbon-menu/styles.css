@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.ribbon-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #fff;
+}
+
+/* Ribbon Header */
+.ribbon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+    color: white;
+    border-bottom: 1px solid #0066b2;
+    flex-shrink: 0;
+}
+
+.app-name {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 4px 8px;
+    min-width: 250px;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    padding: 4px;
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 6px;
+}
+
+/* Ribbon Tabs */
+.ribbon-tabs {
+    display: flex;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #d0d0d0;
+    flex-shrink: 0;
+    gap: 0;
+}
+
+.ribbon-tab {
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.ribbon-tab:hover {
+    background-color: #e8e8e8;
+}
+
+.ribbon-tab.active {
+    background-color: white;
+    color: #0078d4;
+    border-bottom-color: #0078d4;
+}
+
+/* Ribbon Content */
+.ribbon-content {
+    display: flex;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 8px 10px;
+    flex-shrink: 0;
+    overflow-x: auto;
+    height: 100px;
+}
+
+.ribbon-tab-content {
+    display: none;
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    min-width: 0;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.ribbon-tab-content.active {
+    display: flex;
+}
+
+.ribbon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    border-right: 1px solid #d0d0d0;
+}
+
+.ribbon-group:last-child {
+    border-right: none;
+}
+
+.group-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    height: 18px;
+}
+
+.group-items {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ribbon-divider {
+    width: 1px;
+    background-color: #d0d0d0;
+    margin: 0 5px;
+}
+
+/* Ribbon Buttons */
+.ribbon-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    min-width: 55px;
+    text-align: center;
+}
+
+.ribbon-button:hover {
+    background-color: #e0e0e0;
+    border-color: #a0a0a0;
+}
+
+.ribbon-button:active {
+    background-color: #d0d0d0;
+    border-color: #808080;
+}
+
+.ribbon-button.toggle-btn.active {
+    background-color: #0078d4;
+    color: white;
+    border-color: #0066b2;
+}
+
+.ribbon-button .icon {
+    font-size: 18px;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.ribbon-button .label {
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+/* Ribbon Select */
+.ribbon-select {
+    padding: 6px 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #333;
+    min-width: 120px;
+}
+
+.ribbon-select:hover {
+    background-color: #e0e0e0;
+}
+
+.ribbon-select:focus {
+    outline: none;
+    border-color: #0078d4;
+    box-shadow: 0 0 3px rgba(0, 120, 212, 0.5);
+}
+
+/* Status Bar */
+.ribbon-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 15px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #d0d0d0;
+    font-size: 11px;
+    color: #666;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.status-item {
+    padding: 0 10px;
+    border-right: 1px solid #d0d0d0;
+}
+
+.status-item:last-child {
+    border-right: none;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 500px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+}
+
+.modal-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #0078d4;
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #0078d4;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005a9e;
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d0d0d0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .ribbon-group {
+        padding: 0 6px;
+    }
+
+    .ribbon-button {
+        min-width: 50px;
+        padding: 4px 6px;
+    }
+
+    .ribbon-button .icon {
+        font-size: 16px;
+    }
+
+    .ribbon-button .label {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        min-width: 150px;
+    }
+
+    .ribbon-content {
+        overflow-x: auto;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .ribbon-tabs {
+        flex-wrap: wrap;
+    }
+}
