@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Plan - Floor Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="plan-container">
+        <!-- Date Header with Navigation -->
+        <div class="date-header">
+            <button class="nav-btn" id="scroll-left">◀</button>
+            <div class="date-display">
+                <span id="date-range"></span>
+            </div>
+            <button class="nav-btn" id="scroll-right">▶</button>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="plan-wrapper">
+            <div class="rooms-sidebar">
+                <div class="sidebar-header">Rooms</div>
+                <div id="rooms-list" class="rooms-list">
+                    <!-- Rooms will be populated here -->
+                </div>
+            </div>
+
+            <div class="calendar-scroll-container">
+                <div id="calendar-grid" class="calendar-grid">
+                    <!-- Grid will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div id="context-menu" class="context-menu">
+            <button class="context-item" id="ctx-view-details">View Details</button>
+            <button class="context-item" id="ctx-edit-reservation">Edit Reservation</button>
+            <button class="context-item" id="ctx-delete-reservation">Delete</button>
+            <hr>
+            <button class="context-item" id="ctx-new-reservation">New Reservation</button>
+        </div>
+
+        <!-- Reservation Details Modal -->
+        <div id="modal-details" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Reservation Details</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body" id="details-content">
+                    <!-- Details will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
